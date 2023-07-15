@@ -103,14 +103,14 @@ ext {
     minorVersion = 05
     //patchVersion = auto generation
 
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        println "*** Windows is not support build "
-    }else {
-        exec {
-            executable "wget"
-            args "-O", "${projectDir}/metadata.xml", "${metadataUrl}"
-        }
-    }
+//    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+//        println "*** Windows is not support build "
+//    }else {
+//        exec {
+//            executable "wget"
+//            args "-O", "${projectDir}/metadata.xml", "${metadataUrl}"
+//        }
+//    }
     def metadataFile = new XmlSlurper().parse(new File("${projectDir}/metadata.xml"))
     String latest = metadataFile."versioning"."latest"
     String versionPrefix = latest.split("-")[0]
